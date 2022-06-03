@@ -11,7 +11,7 @@ class MainViewModel (private val repo: Repo): ViewModel() {
     val fetchHerosList= liveData(Dispatchers.IO) {
         emit(Resource.Loading())
         try {
-            emit(repo.getHeroList("Hulk"))
+            emit(repo.getHeroList("name"))
         }catch (e:Exception){
             emit(Resource.Failure(e))
         }

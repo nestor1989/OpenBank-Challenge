@@ -8,15 +8,29 @@ import kotlinx.parcelize.Parcelize
 data class Hero(
     @SerializedName("name")
     val name:String,
-    @SerializedName("resourceURI")
-    val image: String,
+    @SerializedName("thumbnail")
+    val image: Photo?,
     @SerializedName("description")
     val description:String
     ): Parcelable
 
+@Parcelize
 data class HeroList(
     @SerializedName("results")
     val heroList: List<Hero>
-)
+):Parcelable
 
+@Parcelize
+data class Data(
+    @SerializedName("data")
+    val results: HeroList?
+):Parcelable
+
+@Parcelize
+data class Photo(
+    @SerializedName ("path")
+    val path: String,
+    @SerializedName ("extension")
+    val extension: String
+):Parcelable
 

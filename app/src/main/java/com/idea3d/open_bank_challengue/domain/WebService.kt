@@ -9,7 +9,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface WebService {
-    @GET("/v1/public/characters?ts=$TS&apikey=$API_KEY&hash=$HASH")
+    @GET("/v1/public/characters?ts=$TS&limit=100&apikey=$API_KEY&hash=$HASH")
 
-    suspend fun GetHeroList(@Query(value = "orderBy")heroName:String): Data
+    suspend fun GetHeroList(@Query(value = "nameStartsWith")heroName:String): Data
 }

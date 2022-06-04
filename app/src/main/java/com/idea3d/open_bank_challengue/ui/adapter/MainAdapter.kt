@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.idea3d.open_bank_challengue.R
 import com.idea3d.open_bank_challengue.core.BaseViewHolder
-import com.idea3d.open_bank_challengue.databinding.HerosRowBinding
+import com.idea3d.open_bank_challengue.databinding.HeroesRowBinding
 import com.idea3d.open_bank_challengue.model.Hero
 
 class MainAdapter(private val context: Context, private val heroList:List<Hero>,
@@ -20,7 +20,7 @@ class MainAdapter(private val context: Context, private val heroList:List<Hero>,
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
         val itemBinding =
-            HerosRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            HeroesRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
         return MainViewHolder(itemBinding)
     }
@@ -35,14 +35,14 @@ class MainAdapter(private val context: Context, private val heroList:List<Hero>,
         return heroList.size
     }
 
-    inner class MainViewHolder(private val itemBinding:HerosRowBinding):
+    inner class MainViewHolder(private val itemBinding:HeroesRowBinding):
         BaseViewHolder<Hero>(itemBinding.root) {
         override fun bind(item: Hero) {
             val image = "${item.image!!.path}.${item.image.extension}"
             Glide.with(context)
                 .load(image)
                 .centerCrop()
-                .placeholder(R.drawable.marvel_heros)
+                .placeholder(R.drawable.marvel_hero_red)
                 .dontAnimate()
                 .into(itemBinding.ivPortada)
             itemBinding.tvTitulo.text=item.name

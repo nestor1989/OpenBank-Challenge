@@ -37,7 +37,11 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Glide.with(requireContext()).load("${hero.image!!.path}.${hero.image!!.extension}").centerCrop().into(_binding!!.imageView)
+        Glide.with(requireContext())
+            .load("${hero.image!!.path}.${hero.image!!.extension}")
+            .centerCrop()
+            .placeholder(R.drawable.marvel_hero_red)
+            .into(_binding!!.imageView)
         _binding!!.tvTitle.text=hero.name
         _binding!!.tvDesc.text=hero.description
         _binding!!.floatingActionButton.setOnClickListener{

@@ -21,7 +21,7 @@
 
         <ImageView
             android:id="@+id/ivPortada"
-            android:layout_width="match_parent"
+            android:layout_width="236dp"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
             android:background="#80FFFFFF"
-            android:maxLines="4"
+            android:maxLines="2"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintBottom_toBottomOf="parent"

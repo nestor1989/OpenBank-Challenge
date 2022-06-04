@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.idea3d.open_bank_challengue.R
 import com.idea3d.open_bank_challengue.core.vo.Resource
@@ -80,19 +81,17 @@ class MainFragment : Fragment(), MainAdapter.OnMovieClickListener, AbcAdapter.On
         val appContext = requireContext().applicationContext
         val recyclerView = binding.rvHeros
         recyclerView.layoutManager= LinearLayoutManager(appContext)
-        binding.rvHeros.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvHeros.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
 
     }
 
     private fun setUpAbcRecyclerView() {
-        generateAbc = listOf("a", "b", "c", "d","e")
+        generateAbc = listOf("a", "b", "c", "d","e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y","z")
         val appContext = requireContext().applicationContext
         val recyclerView = binding.rvAbc
         recyclerView.layoutManager= LinearLayoutManager(appContext)
-        binding.rvAbc.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvAbc.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.rvAbc.adapter = AbcAdapter(requireContext(), generateAbc, this)
     }
 

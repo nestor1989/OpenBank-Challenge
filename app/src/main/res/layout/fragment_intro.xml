@@ -5,16 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.IntroFragment"
-    android:background="@drawable/intro">
+    android:background="@drawable/intro_red">
+
     <ImageView
-        android:layout_width="145dp"
-        android:layout_height="50dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_margin="16dp"
-        android:src="@drawable/marvel_hero_red"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        android:src="@drawable/marvel_hero"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/at_surt_regular"
+        android:lineHeight="20sp"
+        android:text="@string/start"
+        android:textAlignment="center"
+        android:textColor="@color/grey"
+        android:textFontWeight="600"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="192dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -22,32 +48,34 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:fontFamily="@font/at_surt_regular"
-        android:paddingHorizontal="45sp"
         android:lineHeight="31sp"
+        android:paddingHorizontal="45sp"
         android:text="@string/cards"
         android:textAlignment="center"
+        android:textColor="@color/grey"
         android:textFontWeight="600"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline7" />
+        app:layout_constraintTop_toTopOf="@+id/guideline7"
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.84" />
+        app:layout_constraintGuide_percent="0.83" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.72" />
+        app:layout_constraintGuide_percent="0.7" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -55,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="73dp" />
+        app:layout_constraintGuide_begin="136dp" />
 
     <Button
         android:id="@+id/button"

@@ -7,11 +7,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_item"
-        android:layout_width="194dp"
-        android:layout_height="466dp"
+        android:layout_width="71dp"
+        android:layout_height="110dp"
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="20dp"
-        app:cardCornerRadius="25dp"
+        app:cardCornerRadius="2dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +30,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
-
         <TextView
             android:id="@+id/tvTitulo"
             android:layout_width="match_parent"
@@ -40,23 +39,9 @@
             android:maxLines="1"
             android:paddingHorizontal="8dp"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="8sp"
             android:textStyle="bold"
             tools:text="cualqi" />
-
-        <TextView
-            android:id="@+id/tvDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="#80FFFFFF"
-            android:maxLines="2"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="descri" />
 
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

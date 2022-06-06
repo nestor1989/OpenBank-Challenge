@@ -82,8 +82,6 @@ class MainFragment : Fragment(), MainAdapter.OnMovieClickListener, AbcAdapter.On
         val recyclerView = binding.rvHeros
         recyclerView.layoutManager= LinearLayoutManager(appContext)
         binding.rvHeros.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-
-
     }
 
     private fun setUpAbcRecyclerView() {
@@ -106,7 +104,7 @@ class MainFragment : Fragment(), MainAdapter.OnMovieClickListener, AbcAdapter.On
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 if (p0!!.isNotEmpty()){
                 val search = p0
-                viewModel.setHero(search!!)
+                viewModel.setHero(search)
                 }
                 return false
             }
@@ -114,7 +112,7 @@ class MainFragment : Fragment(), MainAdapter.OnMovieClickListener, AbcAdapter.On
             override fun onQueryTextChange(p0: String?): Boolean {
                 if (p0!!.isNotEmpty()){
                 val search = p0
-                viewModel.setHero(search!!)
+                viewModel.setHero(search)
                 }
                 return false
             }

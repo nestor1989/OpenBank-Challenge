@@ -6,6 +6,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Hero(
+    @SerializedName ("id")
+    val id: Long,
     @SerializedName("name")
     val name:String,
     @SerializedName("thumbnail")

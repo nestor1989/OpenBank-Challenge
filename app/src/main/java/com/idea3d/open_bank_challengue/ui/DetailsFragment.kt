@@ -94,18 +94,15 @@ class DetailsFragment : Fragment(), ComicsAdapter.OnComicClickListener {
         viewModel.fetchComicDetails.observe(viewLifecycleOwner, Observer { result ->
             when(result){
                 is Resource.Loading->{
-                    binding.prBar.visibility=View.VISIBLE
-                    binding.prError.visibility=View.GONE
+                    binding.loadingComic.visibility = View.VISIBLE
                 }
                 is Resource.Success->{
-                    binding.prBar.visibility=View.GONE
-                    binding.prError.visibility=View.GONE
+                    binding.loadingComic.visibility = View.GONE
                     binding.rvComics.adapter=ComicsAdapter(requireContext(), result.data, this)
 
                 }
                 is Resource.Failure->{
-                    binding.prBar.visibility=View.GONE
-                    binding.prError.visibility=View.VISIBLE
+                    binding.loadingComic.visibility = View.GONE
                     Toast.makeText(requireContext()," ${result.exception}", Toast.LENGTH_LONG).show()
                 }
 
@@ -121,6 +118,9 @@ class DetailsFragment : Fragment(), ComicsAdapter.OnComicClickListener {
             .into(binding.imageView)
         binding.tvTitle.text=heroDetails.name
         binding.tvDesc.text=heroDetails.description
+        binding.avaiSeries.text = heroDetails.series.available.toString()
+        binding.avaiStories.text = heroDetails.stories.available.toString()
+        binding.avaiComics.text = heroDetails.comics.available.toString()
 
     }
 

@@ -13,6 +13,8 @@
         android:background="@drawable/style_letter"
         android:padding="0sp"
         android:text="A"
+        android:textColor="@color/white"
+
         android:textAllCaps="true"
         android:textSize="24sp"
         app:backgroundTint="@null"

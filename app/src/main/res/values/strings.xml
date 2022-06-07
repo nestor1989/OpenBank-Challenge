@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">open-bank-challengue</string>
+    <string name="app_name">Marvel Hero</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -8,5 +8,8 @@
     <string name="go">Go!</string>
     <string name="searchByLetter">Search by the first letter of the hero\'s name</string>
     <string name="searchByName">Search hero by name</string>
+    <string name="appears_comic">Appears in the comics</string>
+    <string name="appears_series">Series</string>
+    <string name="appears_stories">Stories</string>
 
 </resources>

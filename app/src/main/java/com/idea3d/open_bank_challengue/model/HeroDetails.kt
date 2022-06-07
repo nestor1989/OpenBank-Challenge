@@ -16,7 +16,11 @@ data class HeroDetails(
     @SerializedName("description")
     val description:String,
     @SerializedName("comics")
-    val comics: Comics
+    val comics: Comics,
+    @SerializedName("series")
+    val series: Series,
+    @SerializedName("stories")
+    val stories: Stories
 ): Parcelable
 
 @Parcelize
@@ -42,8 +46,20 @@ data class PhotoDetails(
 
 @Parcelize
 data class Comics(
-    @SerializedName("items")
-    val items: List<ItemsComic>
+    @SerializedName("available")
+    val available: Int
+): Parcelable
+
+@Parcelize
+data class Series(
+    @SerializedName("available")
+    val available: Int
+): Parcelable
+
+@Parcelize
+data class Stories(
+    @SerializedName("available")
+    val available: Int
 ): Parcelable
 
 @Parcelize

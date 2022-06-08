@@ -14,7 +14,7 @@
         android:padding="0sp"
         android:text="A"
         android:textColor="@color/white"
-
+        style="@style/Widget.Material3.Button.OutlinedButton"
         android:textAllCaps="true"
         android:textSize="24sp"
         app:backgroundTint="@null"

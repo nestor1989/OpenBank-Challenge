@@ -70,7 +70,7 @@ class MainFragment : Fragment(), MainAdapter.OnMovieClickListener, AbcAdapter.On
                 is Resource.Failure->{
                     binding.prBar.visibility=View.GONE
                     binding.prError.visibility=View.VISIBLE
-                    Toast.makeText(requireContext()," ${result.exception}",Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(),getString(R.string.no_con),Toast.LENGTH_LONG).show()
                 }
 
             }

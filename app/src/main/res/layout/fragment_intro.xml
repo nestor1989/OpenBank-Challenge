@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="192dp" />
+        app:layout_constraintGuide_percent="0.27" />
 
     <TextView
         android:id="@+id/textView"
@@ -83,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="136dp" />
+        app:layout_constraintGuide_percent="0.1874145" />
 
     <Button
         android:id="@+id/button"
@@ -93,8 +93,8 @@
         android:fontFamily="@font/at_surt_regular"
         android:lineHeight="31sp"
         android:textSize="20sp"
-        android:background="@drawable/style_button"
-        app:backgroundTint="@null"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

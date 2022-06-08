@@ -6,10 +6,16 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ComicDetails(
+    @SerializedName("id")
+    val id:Int,
     @SerializedName("title")
     val title:String,
     @SerializedName("thumbnail")
-    val image: Photo
+    val image: Photo,
+    @SerializedName("description")
+    val description: String,
+    @SerializedName("urls")
+    val urls: List<Urls>
 ): Parcelable
 
 @Parcelize
@@ -23,4 +29,14 @@ data class DataComic(
     @SerializedName("data")
     val results: ComicList
 ):Parcelable
+
+@Parcelize
+data class Urls(
+    @SerializedName("type")
+    val type:String,
+    @SerializedName("url")
+    val url: String
+):Parcelable
+
+
 

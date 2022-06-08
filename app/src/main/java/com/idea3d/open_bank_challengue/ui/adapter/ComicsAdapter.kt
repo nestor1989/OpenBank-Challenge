@@ -48,7 +48,7 @@ class ComicsAdapter (private val context: Context, private val items:List<ComicD
                 .dontAnimate()
                 .into(itemBinding.ivPortada)
             itemBinding.tvTitulo.text=item.title
-           // itemView.setOnClickListener {itemClickListener.onComicClick(item)}
+            itemView.setOnClickListener {itemClickListener.onComicClick(item)}
         }
     }
 

@@ -4,12 +4,14 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="start">How to get started</string>
-    <string name="cards">Touch the cards and enjoy the info of the most popularity heroes</string>
+    <string name="cards">Touch the cards and enjoy the info of all heroes of Marvel</string>
     <string name="go">Go!</string>
+    <string name="get">Get it!</string>
     <string name="searchByLetter">Search by the first letter of the hero\'s name</string>
     <string name="searchByName">Search hero by name</string>
     <string name="appears_comic">Appears in the comics</string>
     <string name="appears_series">Series</string>
     <string name="appears_stories">Stories</string>
+    <string name="no_con">check your internet connection</string>
 
 </resources>

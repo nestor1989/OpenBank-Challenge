@@ -85,7 +85,8 @@ class DetailsFragment : Fragment(), ComicsAdapter.OnComicClickListener {
                 is Resource.Failure->{
                     binding.prBar.visibility=View.GONE
                     binding.prError.visibility=View.VISIBLE
-                    Toast.makeText(requireContext()," ${result.exception}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(),"${result.exception}", Toast.LENGTH_LONG).show()
+                    binding.tvTitle.text = getString(R.string.no_con)
                 }
 
             }
@@ -137,8 +138,28 @@ class DetailsFragment : Fragment(), ComicsAdapter.OnComicClickListener {
         binding.rvComics.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
     }
     override fun onComicClick(comicDetails: ComicDetails) {
-        TODO("Not yet implemented")
+        binding.dialogComic.visibility = View.VISIBLE
+        var url = ""
+        for (i in 0 until comicDetails.urls.size){
+            if (comicDetails.urls[i].type == "detail"){
+                url = comicDetails.urls[i].url
+            }
+        }
+        val image = "${comicDetails.image.path}.${comicDetails.image.extension}"
+        Glide.with(this)
+            .load(image)
+            .centerCrop()
+            .placeholder(R.drawable.marvel_hero_red)
+            .into(binding.includeComics.ivPortada)
+        binding.includeComics.tvTitle.text=comicDetails.title
+        binding.includeComics.tvDesc.text=comicDetails.description
+        binding.includeComics.floatingActionButton.setOnClickListener { binding.dialogComic.visibility = View.GONE}
+        val intent: Intent = Uri.parse("$url").let { webpage ->
+            Intent(Intent.ACTION_VIEW, webpage)}
+        binding.includeComics.button.setOnClickListener { startActivity(intent) }
     }
+
+
 
 
 }

@@ -273,4 +273,22 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintStart_toEndOf="@+id/tvComics" />
 
+    <RelativeLayout
+        android:id="@+id/dialog_comic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        tools:ignore="MissingConstraints"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:background="@color/transparent">
+
+        <include
+            android:id="@+id/include_comics"
+            layout="@layout/include_comic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

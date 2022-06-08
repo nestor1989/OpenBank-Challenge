@@ -58,7 +58,7 @@
             android:fontFamily="@font/at_surt_regular"
             android:letterSpacing="0.013"
             android:lineHeight="22sp"
-            android:paddingHorizontal="24sp"
+            android:paddingHorizontal="8sp"
             android:textSize="15dp"
             android:textAlignment="textStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"

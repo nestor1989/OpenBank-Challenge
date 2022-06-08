@@ -14,7 +14,9 @@ class DetailsViewModel(private val repo: Repo): ViewModel() {
     fun setHero(id:Long){
         idHero.value = id
     }
-        val fetchHeroDetails= liveData(Dispatchers.IO) {
+
+
+    val fetchHeroDetails= liveData(Dispatchers.IO) {
             emit(Resource.Loading())
             try {
                 emit(repo.getHeroById(idHero.value))

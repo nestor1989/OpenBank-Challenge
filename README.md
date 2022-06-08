@@ -6,7 +6,10 @@ El objetivo de esta app es que el usuario pueda buscar cualquier superhéroe de 
 
 El desarrollo de este proyecto tiene como patrón de arquitectura MVVM y se utilizaron librerías de terceros como Retrofit2, Lottie, Shimmer o Glide bajo lineamientos de de Material Design. 
 
-![alt text](https://github.com/nestor1989/OpenBank-Challenge/blob/main/ScreenShots/demo.mp4)
+
+https://user-images.githubusercontent.com/69014050/172732587-63fd8b60-a6ea-47d2-8fca-835c5c969064.mp4
+
+
 ![alt text](https://github.com/nestor1989/OpenBank-Challenge/blob/main/ScreenShots/intro.jpeg)
 ![alt text](https://github.com/nestor1989/OpenBank-Challenge/blob/main/ScreenShots/main.jpeg)
 ![alt text](https://github.com/nestor1989/OpenBank-Challenge/blob/main/ScreenShots/hulk-search.jpeg)

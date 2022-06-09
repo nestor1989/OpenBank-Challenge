@@ -4,14 +4,18 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.bumptech.glide.load.engine.Resource
 import com.idea3d.open_bank_challengue.model.ComicDetails
+import com.idea3d.open_bank_challengue.model.ComicList
 import com.idea3d.open_bank_challengue.repository.Repo
 import io.mockk.MockKAnnotations
+import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
 import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.*
@@ -20,6 +24,7 @@ import org.junit.Rule
 
 import org.junit.Test
 
+@ExperimentalCoroutinesApi
 class DetailsViewModelTest {
 
     @RelaxedMockK
@@ -44,8 +49,9 @@ class DetailsViewModelTest {
 
 
     @Test
-    fun setHeroTest() {
-
+    fun `when viewmodel is created at the first time, set idHero`() = runTest{
+        val idHero:Long? = 1011334
+        //NOT WORKING
     }
 
     @Test
@@ -54,13 +60,6 @@ class DetailsViewModelTest {
 
     @Test
     fun getFetchComicDetails() {
-        val idHero:Long = 1000000
-        val observer = mockk<Observer<com.idea3d.open_bank_challengue.core.vo.Resource<List<ComicDetails>>>>()
-        detailsViewModel.fetchComicDetails.observeForever(observer)
-
-        detailsViewModel.setHero(idHero)
-
-        //verify {  observer.onChanged(repo.getComics(idHero)) }
 
     }
 }

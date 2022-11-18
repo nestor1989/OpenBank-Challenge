@@ -5,9 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.idea3d.open_bank_challengue.core.vo.Resource
 import com.idea3d.open_bank_challengue.repository.Repo
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
 
-class DetailsViewModel(private val repo: Repo): ViewModel() {
+@HiltViewModel
+class DetailsViewModel @Inject constructor(private val repo: Repo): ViewModel() {
 
     private val idHero = MutableLiveData<Long>()
 

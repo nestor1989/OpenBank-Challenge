@@ -3,9 +3,12 @@ package com.idea3d.open_bank_challengue.ui.viewmodel
 import androidx.lifecycle.*
 import com.idea3d.open_bank_challengue.core.vo.Resource
 import com.idea3d.open_bank_challengue.repository.Repo
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
 
-class MainViewModel (private val repo: Repo): ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(private val repo: Repo): ViewModel() {
 
     private val heroData = MutableLiveData<String>()
 
@@ -17,7 +20,7 @@ class MainViewModel (private val repo: Repo): ViewModel() {
         setHero("a")
     }
 
-    val fetchHerosList = heroData.distinctUntilChanged().switchMap {
+    fun fetchHerosList() = heroData.distinctUntilChanged().switchMap {
         liveData(Dispatchers.IO) {
             emit(Resource.Loading())
             try {

@@ -7,10 +7,11 @@ import com.idea3d.open_bank_challengue.repository.RepoImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityRetainedComponent
 import dagger.hilt.android.components.ViewModelComponent
 
 @Module
-@InstallIn(ViewModelComponent::class)
+@InstallIn(ActivityRetainedComponent::class)
 abstract class ActivityModule {
 
     @Binds

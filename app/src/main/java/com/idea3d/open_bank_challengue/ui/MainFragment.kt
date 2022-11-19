@@ -10,23 +10,23 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.idea3d.open_bank_challengue.R
 import com.idea3d.open_bank_challengue.core.vo.Resource
-import com.idea3d.open_bank_challengue.data.DataSource
+import com.idea3d.open_bank_challengue.data.DataSourceImpl
 import com.idea3d.open_bank_challengue.databinding.FragmentMainBinding
 import com.idea3d.open_bank_challengue.model.Hero
 import com.idea3d.open_bank_challengue.repository.RepoImpl
 import com.idea3d.open_bank_challengue.ui.adapter.MainAdapter
 import com.idea3d.open_bank_challengue.ui.adapter.AbcAdapter
 import com.idea3d.open_bank_challengue.ui.viewmodel.MainViewModel
-import com.idea3d.open_bank_challengue.ui.viewmodel.VMFactory
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainFragment : Fragment(), MainAdapter.OnMovieClickListener, AbcAdapter.OnLetterClickListener {
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
-    private val viewModel by viewModels<MainViewModel>(){ VMFactory(RepoImpl(DataSource())) }
+    private val viewModel by viewModels<MainViewModel>()
     var generateAbc = listOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,7 +56,7 @@ class MainFragment : Fragment(), MainAdapter.OnMovieClickListener, AbcAdapter.On
     }
 
     private fun setUpObservers(){
-        viewModel.fetchHerosList.observe(viewLifecycleOwner, Observer { result ->
+        viewModel.fetchHerosList().observe(viewLifecycleOwner, Observer { result ->
             when(result){
                 is Resource.Loading->{
                     binding.prBar.visibility=View.VISIBLE

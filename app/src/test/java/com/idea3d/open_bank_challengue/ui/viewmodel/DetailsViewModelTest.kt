@@ -1,6 +1,7 @@
 package com.idea3d.open_bank_challengue.ui.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.bumptech.glide.load.engine.Resource
 import com.idea3d.open_bank_challengue.model.ComicDetails
@@ -30,7 +31,6 @@ class DetailsViewModelTest {
     @RelaxedMockK
     private lateinit var repo: Repo
 
-
     private lateinit var detailsViewModel: DetailsViewModel
 
     @get:Rule
@@ -50,8 +50,9 @@ class DetailsViewModelTest {
 
     @Test
     fun `when viewmodel is created at the first time, set idHero`() = runTest{
-        val idHero:Long? = 1011334
-        //NOT WORKING
+        val number:Long = 1011334
+        detailsViewModel.setHero(number)
+        assertEquals(number, detailsViewModel.idHero.value)
     }
 
     @Test

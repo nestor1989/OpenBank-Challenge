@@ -12,14 +12,14 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailsViewModel @Inject constructor(private val repo: Repo): ViewModel() {
 
-    private val idHero = MutableLiveData<Long>()
+    val idHero = MutableLiveData<Long>()
 
     fun setHero(id:Long){
         idHero.value = id
     }
 
 
-    val fetchHeroDetails= liveData(Dispatchers.IO) {
+    fun fetchHeroDetails()= liveData(Dispatchers.IO) {
             emit(Resource.Loading())
             try {
                 emit(repo.getHeroById(idHero.value))
@@ -28,7 +28,7 @@ class DetailsViewModel @Inject constructor(private val repo: Repo): ViewModel() 
             }
         }
 
-    val fetchComicDetails= liveData(Dispatchers.IO) {
+    fun fetchComicDetails()= liveData(Dispatchers.IO) {
         emit(Resource.Loading())
         try {
             emit(repo.getComics(idHero.value))

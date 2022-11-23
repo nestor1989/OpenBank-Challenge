@@ -10,7 +10,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(private val repo: Repo): ViewModel() {
 
-    private val heroData = MutableLiveData<String>()
+    val heroData = MutableLiveData<String>()
 
     fun setHero(heroName:String){
         heroData.value = heroName

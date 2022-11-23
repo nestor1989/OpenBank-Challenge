@@ -1,10 +1,10 @@
 package com.idea3d.open_bank_challengue.ui.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import org.hamcrest.MatcherAssert.assertThat
 import com.idea3d.open_bank_challengue.TestCoroutineRule
 import com.idea3d.open_bank_challengue.core.vo.Resource
 import com.idea3d.open_bank_challengue.getOrAwaitValue
+import com.idea3d.open_bank_challengue.model.Hero
 import com.idea3d.open_bank_challengue.model.HeroDetails
 import com.idea3d.open_bank_challengue.repository.Repo
 import io.mockk.MockKAnnotations
@@ -14,23 +14,16 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
-import org.hamcrest.Matchers.*
-import org.junit.After
-import org.junit.Assert.*
-import org.junit.Before
-import org.junit.Rule
-import org.junit.Test
+import org.hamcrest.MatcherAssert
+import org.hamcrest.Matchers
+import org.junit.*
 import org.junit.rules.TestRule
-import org.junit.runner.RunWith
-import org.mockito.junit.MockitoJUnitRunner
-
 
 @ExperimentalCoroutinesApi
-class DetailsViewModelTest {
-
+class MainViewModelTest{
     @RelaxedMockK
     private lateinit var repo: Repo
-    private lateinit var detailsViewModel: DetailsViewModel
+    private lateinit var mainViewModel: MainViewModel
 
     @get:Rule
     var rule: InstantTaskExecutorRule = InstantTaskExecutorRule()
@@ -43,7 +36,7 @@ class DetailsViewModelTest {
     @Before
     fun onBefore() {
         MockKAnnotations.init(this)
-        detailsViewModel = DetailsViewModel(repo)
+        mainViewModel = MainViewModel(repo)
         Dispatchers.setMain(Dispatchers.Unconfined)
     }
     @After
@@ -54,9 +47,9 @@ class DetailsViewModelTest {
 
     @Test
     fun `when viewmodel is created at the first time, set idHero`() = runTest{
-        val number:Long = 1011334
-        detailsViewModel.setHero(number)
-        assertEquals(number, detailsViewModel.idHero.value)
+        val name = "a"
+        mainViewModel.setHero(name)
+        Assert.assertEquals(name, mainViewModel.heroData.value)
     }
 
     @Test
@@ -64,35 +57,36 @@ class DetailsViewModelTest {
         // GIVEN
         testCoroutineRule.runBlockingTest {
             // WHEN
-            detailsViewModel.fetchHeroDetails()
+            mainViewModel.fetchHerosList()
             // THEN
-            assertNotNull(detailsViewModel.fetchHeroDetails())
+            Assert.assertNotNull(mainViewModel.fetchHerosList())
         }
     }
 
 
     @Test
     fun `when calling for results then return loading`() {
-        val loading = Resource.Loading<HeroDetails>()
+        val loading = Resource.Loading<Hero>()
         testCoroutineRule.runBlockingTest {
-            detailsViewModel.fetchHeroDetails()
-            val result = detailsViewModel.fetchHeroDetails().getOrAwaitValue()
-            assertThat(result, instanceOf(loading.javaClass))
+            mainViewModel.fetchHerosList()
+            val result = mainViewModel.fetchHerosList().getOrAwaitValue()
+            MatcherAssert.assertThat(result, Matchers.instanceOf(loading.javaClass))
         }
     }
 
     @Test
     fun `when fetching results fails then return an error`() {
-        val number:Long = 0
         testCoroutineRule.runBlockingTest {
-            detailsViewModel.setHero(number)
+            mainViewModel.setHero("!")
             try {
-                detailsViewModel.fetchHeroDetails()
+                mainViewModel.fetchHerosList()
             }catch (e: Exception){
-                assertThat(e.message, `is`("We don't recognize the parameter id"))
+                MatcherAssert.assertThat(
+                    e.message,
+                    Matchers.`is`("We don't recognize the parameter id")
+                )
             }
         }
 
     }
 }
-

@@ -1,29 +1,26 @@
 package com.idea3d.open_bank_challengue.ui.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import com.bumptech.glide.load.engine.Resource
-import com.idea3d.open_bank_challengue.model.ComicDetails
-import com.idea3d.open_bank_challengue.model.ComicList
+import org.hamcrest.MatcherAssert.assertThat
+import com.idea3d.open_bank_challengue.TestCoroutineRule
+import com.idea3d.open_bank_challengue.getOrAwaitValue
+import com.idea3d.open_bank_challengue.model.HeroDetails
 import com.idea3d.open_bank_challengue.repository.Repo
 import io.mockk.MockKAnnotations
-import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
-import io.mockk.mockk
-import io.mockk.verify
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
+import org.hamcrest.Matchers.*
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
-
 import org.junit.Test
+import org.junit.rules.TestRule
+
 
 @ExperimentalCoroutinesApi
 class DetailsViewModelTest {
@@ -35,6 +32,11 @@ class DetailsViewModelTest {
 
     @get:Rule
     var rule: InstantTaskExecutorRule = InstantTaskExecutorRule()
+
+    @get:Rule
+    val testInstantTaskExecutorRule: TestRule = InstantTaskExecutorRule()
+    @get:Rule
+    val testCoroutineRule = TestCoroutineRule()
 
     @Before
     fun onBefore() {
@@ -56,11 +58,36 @@ class DetailsViewModelTest {
     }
 
     @Test
-    fun getFetchHeroDetails() {
+    fun `when fetching results ok then return a list successfully`() {
+        // GIVEN
+        testCoroutineRule.runBlockingTest {
+            // WHEN
+            detailsViewModel.fetchHeroDetails()
+            // THEN
+            assertNotNull(detailsViewModel.fetchHeroDetails())
+        }
     }
+
 
     @Test
-    fun getFetchComicDetails() {
-
+    fun `when calling for results then return loading`() {
+        val loading = com.idea3d.open_bank_challengue.core.vo.Resource.Loading<HeroDetails>()
+        testCoroutineRule.runBlockingTest {
+            detailsViewModel.fetchHeroDetails()
+            val result = detailsViewModel.fetchHeroDetails().getOrAwaitValue()
+            assertThat(result, instanceOf(loading.javaClass))
+        }
     }
+
+    /*
+    @Test
+    fun `when fetching results fails then return an error`() {
+        val exception = mock(HttpException::class.java)
+        testCoroutineRule.runBlockingTest {
+            whenever(repoImplMock.getWeList("hola")).thenThrow(exception)
+            vmMock.fetchWeList()
+        }
+        assertEquals(Resource.Failure<We>(exception),vmMock.listWe.value)
+    }*/
 }
+

@@ -96,6 +96,9 @@ dependencies {
 
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestImplementation 'androidx.test:rules:1.4.0'
+
+    //Hamcrest
+    testImplementation 'org.hamcrest:hamcrest:2.2'
 }
 
 kapt {

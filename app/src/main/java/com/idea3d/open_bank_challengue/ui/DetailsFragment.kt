@@ -62,7 +62,7 @@ class DetailsFragment : Fragment(), ComicsAdapter.OnComicClickListener {
 
     }
     private fun setUpObservers(){
-        viewModel.fetchHeroDetails.observe(viewLifecycleOwner, Observer { result ->
+        viewModel.fetchHeroDetails().observe(viewLifecycleOwner, Observer { result ->
             when(result){
                 is Resource.Loading->{
                     binding.prBar.visibility=View.VISIBLE
@@ -84,7 +84,7 @@ class DetailsFragment : Fragment(), ComicsAdapter.OnComicClickListener {
             }
         })
 
-        viewModel.fetchComicDetails.observe(viewLifecycleOwner, Observer { result ->
+        viewModel.fetchComicDetails().observe(viewLifecycleOwner, Observer { result ->
             when(result){
                 is Resource.Loading->{
                     binding.loadingComic.visibility = View.VISIBLE

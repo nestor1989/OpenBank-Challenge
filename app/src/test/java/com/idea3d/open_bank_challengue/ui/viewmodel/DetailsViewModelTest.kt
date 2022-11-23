@@ -3,6 +3,7 @@ package com.idea3d.open_bank_challengue.ui.viewmodel
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import org.hamcrest.MatcherAssert.assertThat
 import com.idea3d.open_bank_challengue.TestCoroutineRule
+import com.idea3d.open_bank_challengue.core.vo.Resource
 import com.idea3d.open_bank_challengue.getOrAwaitValue
 import com.idea3d.open_bank_challengue.model.HeroDetails
 import com.idea3d.open_bank_challengue.repository.Repo
@@ -20,14 +21,16 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
+import org.junit.runner.RunWith
+import org.mockito.junit.MockitoJUnitRunner
 
 
 @ExperimentalCoroutinesApi
+@RunWith(MockitoJUnitRunner::class)
 class DetailsViewModelTest {
 
     @RelaxedMockK
     private lateinit var repo: Repo
-
     private lateinit var detailsViewModel: DetailsViewModel
 
     @get:Rule
@@ -71,7 +74,7 @@ class DetailsViewModelTest {
 
     @Test
     fun `when calling for results then return loading`() {
-        val loading = com.idea3d.open_bank_challengue.core.vo.Resource.Loading<HeroDetails>()
+        val loading = Resource.Loading<HeroDetails>()
         testCoroutineRule.runBlockingTest {
             detailsViewModel.fetchHeroDetails()
             val result = detailsViewModel.fetchHeroDetails().getOrAwaitValue()
@@ -79,15 +82,18 @@ class DetailsViewModelTest {
         }
     }
 
-    /*
     @Test
     fun `when fetching results fails then return an error`() {
-        val exception = mock(HttpException::class.java)
+        val number:Long = 0
         testCoroutineRule.runBlockingTest {
-            whenever(repoImplMock.getWeList("hola")).thenThrow(exception)
-            vmMock.fetchWeList()
+            detailsViewModel.setHero(number)
+            try {
+                detailsViewModel.fetchHeroDetails()
+            }catch (e: Exception){
+                assertThat(e.message, `is`("We don't recognize the parameter id"))
+            }
         }
-        assertEquals(Resource.Failure<We>(exception),vmMock.listWe.value)
-    }*/
+
+    }
 }
 

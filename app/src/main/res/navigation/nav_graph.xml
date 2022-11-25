@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_mainFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -30,6 +33,18 @@
         tools:layout="@layout/fragment_intro" >
         <action
             android:id="@+id/action_introFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.idea3d.open_bank_challengue.ui.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_favoriteFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

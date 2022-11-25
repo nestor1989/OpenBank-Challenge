@@ -30,6 +30,26 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/button_fav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@null"
+                android:src="@drawable/ic_baseline_favorite_border_24"
+                android:tint="@null"
+                app:backgroundTint="@color/most_transparent"
+                app:elevation="0dp"
+                app:fabCustomSize="48dp"
+                app:rippleColor="@null"
+                app:tint="@color/white" />
+
+        </RelativeLayout>
+
 
         <TextView
             android:id="@+id/tvTitulo"
@@ -57,6 +77,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="descri" />
+
+
 
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

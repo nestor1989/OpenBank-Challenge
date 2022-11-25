@@ -1,5 +1,4 @@
 package com.idea3d.open_bank_challengue.ui.adapter
-
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,15 +7,14 @@ import com.bumptech.glide.Glide
 import com.idea3d.open_bank_challengue.R
 import com.idea3d.open_bank_challengue.core.BaseViewHolder
 import com.idea3d.open_bank_challengue.databinding.HeroesRowBinding
-import com.idea3d.open_bank_challengue.model.Hero
+import com.idea3d.open_bank_challengue.model.HeroEntity
 
-class MainAdapter(private val context: Context, private val heroList:List<Hero>,
-                  private val itemClickListener:OnMovieClickListener):
+class FavoriteAdapter(private val context: Context, private val heroList:List<HeroEntity>,
+                      private val itemClickListener:OnMovieClickListener):
     RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     interface OnMovieClickListener{
-        fun onHeroClick(hero:Hero)
-        fun onFavoriteClick(hero: Hero)
+        fun onHeroClick(hero:HeroEntity)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
@@ -37,9 +35,9 @@ class MainAdapter(private val context: Context, private val heroList:List<Hero>,
     }
 
     inner class MainViewHolder(private val itemBinding:HeroesRowBinding):
-        BaseViewHolder<Hero>(itemBinding.root) {
-        override fun bind(item: Hero) {
-            val image = "${item.image!!.path}.${item.image.extension}"
+        BaseViewHolder<HeroEntity>(itemBinding.root) {
+        override fun bind(item: HeroEntity) {
+            val image = "${item.path}.${item.extension}"
             Glide.with(context)
                 .load(image)
                 .centerCrop()
@@ -49,7 +47,6 @@ class MainAdapter(private val context: Context, private val heroList:List<Hero>,
             itemBinding.tvTitulo.text=item.name
             itemBinding.tvDesc.text=item.description
             itemView.setOnClickListener {itemClickListener.onHeroClick(item)}
-            itemBinding.buttonFav.setOnClickListener { itemClickListener.onFavoriteClick(item) }
         }
     }
 }

@@ -1,6 +1,10 @@
 package com.idea3d.open_bank_challengue.model
 
 import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
@@ -35,4 +39,19 @@ data class Photo(
     @SerializedName ("extension")
     val extension: String
 ):Parcelable
+
+@Entity
+data class HeroEntity(
+    @PrimaryKey
+    val id: Long,
+    @ColumnInfo(name = "name")
+    val name:String,
+    @ColumnInfo(name ="path")
+    val path: String,
+    @ColumnInfo(name ="extension")
+    val extension: String,
+    @ColumnInfo(name ="description")
+    val description:String
+
+)
 

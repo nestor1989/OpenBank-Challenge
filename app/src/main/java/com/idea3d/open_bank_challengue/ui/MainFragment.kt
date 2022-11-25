@@ -16,6 +16,7 @@ import com.idea3d.open_bank_challengue.core.vo.Resource
 import com.idea3d.open_bank_challengue.data.DataSourceImpl
 import com.idea3d.open_bank_challengue.databinding.FragmentMainBinding
 import com.idea3d.open_bank_challengue.model.Hero
+import com.idea3d.open_bank_challengue.model.HeroEntity
 import com.idea3d.open_bank_challengue.repository.RepoImpl
 import com.idea3d.open_bank_challengue.ui.adapter.MainAdapter
 import com.idea3d.open_bank_challengue.ui.adapter.AbcAdapter
@@ -46,6 +47,7 @@ class MainFragment : Fragment(), MainAdapter.OnMovieClickListener, AbcAdapter.On
         setUpAbcRecyclerView()
         setUpSearchView()
         setUpObservers()
+        setUpButtons()
 
         return binding.root
     }
@@ -99,6 +101,12 @@ class MainFragment : Fragment(), MainAdapter.OnMovieClickListener, AbcAdapter.On
         findNavController().navigate(R.id.detailsFragment, bundle)
     }
 
+    override fun onFavoriteClick(hero: Hero) {
+        val heroEntity=HeroEntity(hero.id, hero.name, hero.image!!.path, hero.image!!.extension, hero.description)
+        viewModel.saveHero(heroEntity)
+        Toast.makeText(requireContext(), "Added to your favorite heroes", Toast.LENGTH_LONG).show()
+    }
+
     private fun setUpSearchView(){
         binding.search.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(p0: String?): Boolean {
@@ -122,5 +130,11 @@ class MainFragment : Fragment(), MainAdapter.OnMovieClickListener, AbcAdapter.On
 
     override fun onAbcClick(letter: String) {
         viewModel.setHero(letter)
+    }
+
+    private fun setUpButtons(){
+        binding.tvFav.setOnClickListener{
+            findNavController().navigate(R.id.action_mainFragment_to_favoriteFragment)
+        }
     }
 }

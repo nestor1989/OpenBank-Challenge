@@ -7,10 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="7dp"
-    tools:context=".ui.MainFragment">
-
-
-
+    tools:context=".ui.FavoriteFragment">
 
     <ImageView
         android:layout_width="100dp"
@@ -67,7 +64,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
@@ -76,53 +73,11 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/heroes_row"
                 android:visibility="visible" />
 
-            <TextView
-                android:id="@+id/tvFav"
-                android:clickable="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="4dp"
-                android:ellipsize="end"
-                android:fontFamily="@font/at_surt_regular"
-                android:lineHeight="18sp"
-                android:text="@string/see_fav"
-                android:textAlignment="center"
-                android:textColor="@color/red_marvel"
-                android:textFontWeight="600"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:focusable="true" />
 
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="4dp"
-                android:ellipsize="end"
-                android:fontFamily="@font/at_surt_regular"
-                android:lineHeight="18sp"
-                android:text="@string/searchByLetter"
-                android:textAlignment="center"
-                android:textColor="@color/red_marvel"
-                android:textFontWeight="600"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_abc"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                tools:listitem="@layout/letter_row">
-
-            </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

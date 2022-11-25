@@ -5,7 +5,6 @@ import com.idea3d.open_bank_challengue.TestCoroutineRule
 import com.idea3d.open_bank_challengue.core.vo.Resource
 import com.idea3d.open_bank_challengue.getOrAwaitValue
 import com.idea3d.open_bank_challengue.model.Hero
-import com.idea3d.open_bank_challengue.model.HeroDetails
 import com.idea3d.open_bank_challengue.repository.Repo
 import io.mockk.MockKAnnotations
 import io.mockk.impl.annotations.RelaxedMockK

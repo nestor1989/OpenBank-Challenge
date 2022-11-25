@@ -226,6 +226,7 @@
         android:id="@+id/rvComics"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline4"
         tools:layout_editor_absoluteX="1dp" />
@@ -279,7 +280,7 @@
         android:gravity="center"
         tools:ignore="MissingConstraints"
         android:visibility="gone"
-        tools:visibility="visible"
+        tools:visibility="gone"
         android:background="@color/transparent">
 
         <include

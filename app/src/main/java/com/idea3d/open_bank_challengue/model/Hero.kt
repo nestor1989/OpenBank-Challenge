@@ -4,6 +4,7 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
@@ -45,8 +46,10 @@ data class HeroEntity(
     val id: Long,
     @ColumnInfo(name = "name")
     val name:String,
-    @ColumnInfo(name ="thumbnail")
-    val image: Photo?,
+    @ColumnInfo(name ="path")
+    val path: String,
+    @ColumnInfo(name ="extension")
+    val extension: String,
     @ColumnInfo(name ="description")
     val description:String
 

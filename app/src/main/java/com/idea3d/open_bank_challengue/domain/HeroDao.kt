@@ -1,11 +1,9 @@
 package com.idea3d.open_bank_challengue.domain
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.idea3d.open_bank_challengue.model.HeroEntity
 
+@Dao
 interface HeroDao {
     @Query("SELECT * FROM HeroEntity ")
     suspend fun getAllFavoriteHeroes(): List<HeroEntity>

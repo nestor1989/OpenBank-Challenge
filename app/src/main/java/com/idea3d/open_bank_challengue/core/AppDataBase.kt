@@ -12,17 +12,4 @@ abstract class AppDataBase: RoomDatabase() {
 
     abstract fun heroesDao(): HeroDao
 
-    companion object{
-
-        private var INSTANCE: AppDataBase? = null
-
-        fun getDabaBase(context: Context):AppDataBase{
-            INSTANCE = INSTANCE ?: Room.databaseBuilder(context.applicationContext, AppDataBase::class.java,  "tabla hero").build()
-            return INSTANCE!!
-        }
-
-        fun destroyInstance(){
-            INSTANCE = null
-        }
-    }
 }

@@ -13,5 +13,7 @@
     <string name="appears_series">Series</string>
     <string name="appears_stories">Stories</string>
     <string name="no_con">check your internet connection</string>
+    <string name="no_fav">you have not favorites yet</string>
+    <string name="see_fav">See your favorites!</string>
 
 </resources>

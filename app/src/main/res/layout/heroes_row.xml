@@ -36,13 +36,14 @@
             android:layout_gravity="center">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/button_fav"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@null"
-                app:elevation="0dp"
                 android:src="@drawable/ic_baseline_favorite_border_24"
                 android:tint="@null"
                 app:backgroundTint="@color/most_transparent"
+                app:elevation="0dp"
                 app:fabCustomSize="48dp"
                 app:rippleColor="@null"
                 app:tint="@color/white" />

@@ -74,40 +74,88 @@
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/error" />
-
-
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="446dp"
-        android:layout_height="294dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline9"
-        tools:src="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:fontFamily="@font/at_surt_ultra_bold"
-        android:lineHeight="31sp"
-        android:maxLines="2"
-        android:paddingStart="24sp"
-        android:text="TextView"
-        android:textAlignment="textStart"
-        android:textFontWeight="600"
-        android:textSize="20dp"
-        android:textStyle="bold"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        tools:text="hero" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline13"
+        app:layout_constraintTop_toTopOf="@+id/guideline4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvComics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="LinearLayoutManager"
+                android:orientation="horizontal"
+                tools:listitem="@layout/comic_row"
+                app:layout_constraintBottom_toTopOf="@+id/guideline9"
+                app:layout_constraintTop_toTopOf="@+id/guideline4"
+                tools:layout_editor_absoluteX="1dp" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="446dp"
+                android:layout_height="226dp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline2"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline9"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/at_surt_ultra_bold"
+                android:lineHeight="31sp"
+                android:maxLines="2"
+                android:paddingStart="24sp"
+                android:text="TextView"
+                android:textAlignment="textStart"
+                android:textFontWeight="600"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline2"
+                tools:text="hero" />
+
+            <TextView
+                android:id="@+id/tvDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/at_surt_regular"
+                android:letterSpacing="0.013"
+                android:lineHeight="22sp"
+                android:maxLines="4"
+                android:paddingHorizontal="24sp"
+                android:textAlignment="textStart"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline13"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline2"
+                app:layout_constraintVertical_bias="0.542"
+                tools:text="description" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
 
     <androidx.constraintlayout.widget.Barrier
         android:layout_width="wrap_content"
@@ -123,23 +171,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.56" />
 
-    <TextView
-        android:id="@+id/tvDesc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/at_surt_regular"
-        android:letterSpacing="0.013"
-        android:lineHeight="22sp"
-        android:maxLines="5"
-        android:paddingHorizontal="24sp"
-        android:textAlignment="textStart"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline13"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.542"
-        tools:text="description" />
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -222,14 +254,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.95" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvComics"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layoutManager="LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/guideline9"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        tools:layout_editor_absoluteX="1dp" />
+
 
     <TextView
         android:id="@+id/tvComics"

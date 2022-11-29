@@ -1,6 +1,7 @@
 package com.idea3d.open_bank_challengue.ui.adapter
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -37,6 +38,7 @@ class FavoriteAdapter(private val context: Context, private val heroList:List<He
     inner class MainViewHolder(private val itemBinding:HeroesRowBinding):
         BaseViewHolder<HeroEntity>(itemBinding.root) {
         override fun bind(item: HeroEntity) {
+            itemBinding.buttonFav.visibility = View.GONE
             val image = "${item.path}.${item.extension}"
             Glide.with(context)
                 .load(image)
